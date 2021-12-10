@@ -21,6 +21,22 @@ Route::get('/', function () {
     // return 'Hello world';
 });
 
-Route::get('post', function () {
-    return view('post');
+Route::get('posts/{post}', function ($slug) {    
+
+    $path = __DIR__."/../resources/posts/{$slug}.html";
+
+    if(! file_exists($path)){
+        //ddd("file does not exist");
+        //abort(404);
+        return redirect('/');
+    }
+
+    $post = file_get_contents($path);
+
+    return view('post', [
+            'post' => $post
+            //'post' => '<h3>Hello world</h3>' // $post
+        ]
+    );
+
 });
