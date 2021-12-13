@@ -36,7 +36,7 @@ Route::get('posts/{post}', function ($slug) {
     return view('post', [
             'post' => $post
             //'post' => '<h3>Hello world</h3>' // $post
-        ]
+        ]        
     );
 
-});
+})->where('post', '[A-z_\-]+')  ;  // whereAlpha('post');
