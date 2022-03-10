@@ -31,12 +31,17 @@ Route::get('posts/{post}', function ($slug) {
         'post' => $post
     ]);
 
-
-   /*
-   
-     
-  */
-
     // чтобы только такие посты отрабатывали в адресной строке, 
     // с остальными символами - 404
 })->where('post', '[A-z_\-]+') ;  // whereAlpha('post');
+
+/*
+// Wildcard {post}:
+// пример того, как на страницу возвращается 
+// свой собственный url {post},
+// вбитый в адресную строку вручную
+
+Route::get('posts/{post}', function ($slug) {
+    return $slug;
+});
+*/
