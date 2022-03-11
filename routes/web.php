@@ -21,6 +21,7 @@ Route::get('/', function () {
     // return 'Hello world';
 });
 
+/* Окончательная версия
 Route::get('posts/{post}', function ($slug) {    
 
     $path = __DIR__."/../resources/posts/{$slug}.html";
@@ -38,5 +39,16 @@ Route::get('posts/{post}', function ($slug) {
             //'post' => '<h3>Hello world</h3>' // $post
         ]
     );
+
+});
+*/
+// Предварительная версия 1
+// Работает по ссылке '/post'
+Route::get('post', function() {         // какой get использовать
+    $post = file_get_contents(__DIR__."/../resources/posts/my-first-post.html"); // что значит переменная $post
+    return view('post', [               // какой view загружать
+        'post' => $post                 // передана переменная $post в этот view
+        //'post' => '<h3>Hello world</h3>'
+    ]);
 
 });
