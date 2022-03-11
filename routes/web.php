@@ -42,17 +42,17 @@ Route::get('posts/{post}', function ($slug) {
 
 });
 */
-// Предварительная версия 2
-// Сочетание {anything} и $slug выводит на страницу anything
+// Предварительная версия 3
+// $slug передаётся в file_get_contents и $post
+// работает так: /posts/my-first-post
 Route::get('posts/{post}', function($slug) {         // какой get использовать
-    return $slug;
+       
+    $post = file_get_contents(__DIR__."/../resources/posts/{$slug}.html"); // что значит переменная $post
     
-    /*
-    $post = file_get_contents(__DIR__."/../resources/posts/my-first-post.html"); // что значит переменная $post
     return view('post', [               // какой view загружать
         'post' => $post                 // передана переменная $post в этот view
         //'post' => '<h3>Hello world</h3>'
     ]);
-    */
+    
 
 });
