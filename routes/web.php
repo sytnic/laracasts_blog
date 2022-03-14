@@ -22,26 +22,20 @@ Route::get('/', function () {
     // return 'Hello world';
 });
 
-Route::get('posts/{post}', function ($slug) {
 
-    // Find a post by its slug and pass it to a view called "post"
-    $post = Post::find($slug);
+// {post} и $slug формируют автоматический возврат слага из адресной строки
 
-    return view('post', [
-        'post' => $post
+Route::get('posts/{post}', function ($slug) {   // какой url и метод (get)
+
+    // Find a post by its slug and pass it to a view called "post".
+    // Найти post по его слагу и передать его во view под названием "post".
+    $post = Post::find($slug);                  // какие модель и метод задействуются
+
+    return view('post', [                       // какой view
+        'post' => $post                         // какая переменная передаётся во view
     ]);
 
     // чтобы только такие посты отрабатывали в адресной строке, 
     // с остальными символами - 404
 })->where('post', '[A-z_\-]+') ;  // whereAlpha('post');
 
-/*
-// Wildcard {post}:
-// пример того, как на страницу возвращается 
-// свой собственный url {post},
-// вбитый в адресную строку вручную
-
-Route::get('posts/{post}', function ($slug) {
-    return $slug;
-});
-*/
