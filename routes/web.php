@@ -19,6 +19,11 @@ Route::get('/', function () {
         $posts = Post::all();
 
         // dd($posts);
+        // dd($posts[0]);
+        // dd($posts[0]->getPathname());
+        // dd( (string) $posts[0] );
+
+        // dd($posts[2]->getContents());
 
         return view('posts', [
            'posts' => $posts
