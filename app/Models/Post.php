@@ -17,11 +17,17 @@ class Post
     
         $files = File::files(resource_path("posts/"));
 
+                
         // возвращает foo для каждого из файлов
         return array_map (function ($file) {
-            return 'foo';
-        }, $files);
+            // return 'foo';
+            return $file->getContents();
+        }, $files);        
+        
+        // короткая версия
+        // return array_map(fn($file) => $file->getContents(), $files);
     
+
     }
 
 
