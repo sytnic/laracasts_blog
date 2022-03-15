@@ -18,9 +18,11 @@ Route::get('/', function () {
 
         $posts = Post::all();
 
-       return view('posts', [
+        // dd($posts);
+
+        return view('posts', [
            'posts' => $posts
-       ]    
+        ]    
     );
     // return view('welcome');
     // return [ "foo" => "bar"];

@@ -10,6 +10,8 @@ class Post
     public static function all(){
 
         $directory = resource_path("posts/");
+
+        // Получает список названия файлов из указанной директории
         return File::files($directory);
     }
 
