@@ -18,7 +18,7 @@ class Post
         $files = File::files(resource_path("posts/"));
 
                 
-        // возвращает foo для каждого из файлов
+        // возвращает контент для каждого из файлов
         return array_map (function ($file) {
             // return 'foo';
             return $file->getContents();
