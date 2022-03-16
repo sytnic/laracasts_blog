@@ -16,7 +16,7 @@ use App\Models\Post;
 
 Route::get('/', function () {
 
-        $posts = Post::all();
+        $posts = Post::all(); // array
 
         // dd($posts);
         // dd($posts[0]);
@@ -25,8 +25,10 @@ Route::get('/', function () {
 
         // dd($posts[2]->getContents());
 
-        return view('posts', [
-           'posts' => $posts
+        return view('posts', [   // вызывается вью
+           // 'posts' => 
+           'myposts' => $posts  // в ключе передаётся переменная для вью
+                             // в значении передаётся переменная для ключа
         ]    
     );
     // return view('welcome');

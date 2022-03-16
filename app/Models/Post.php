@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\File;
 
 class Post 
 {
+     /**
+     * Собирает контент всех файлов из указанной директории
+     *
+     * @param  
+     * @param  
+     * @return
+     */    
+    
     public static function all(){
 
         /*

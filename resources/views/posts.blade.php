@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <?php foreach ($posts as $post) : ?> 
+    <?php foreach ($myposts as $post) : ?> 
 
   <article>
       <?=  $post;  ?>

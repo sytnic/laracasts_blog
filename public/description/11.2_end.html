@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style></style>
+    <link rel="stylesheet" href="/app.css">
+    
+    <title>Laravel blog</title>
+</head>
+<body>
+
+    <img src="./img/11.2_The_end.png" alt="drawing" width="800"/>    
+    http://blog.local:4516/
+    
+<p>
+1. В web.php отрабатывается обращение к главной странице  
+с помощью Route::get('/'...  
+к-рый обращается к модели POST::all.  
+Тут POST своим методом all собирает контент всех файлов из указанной директории.  
+</p>
+<p>
+2. Тут же в web.php в Route::get('/'...    
+вызывается вью resources\views\posts.blade.php,  
+куда в качестве переменной передается полученный от POST массив.
+</p>
+<p>
+3. На экран вызывается posts.blade.php. Внутри которой идет обработка переданной переменной $myposts.
+</p>
+
+</body>
+</html>
+
+
+
+
+
