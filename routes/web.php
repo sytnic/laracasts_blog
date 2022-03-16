@@ -19,13 +19,31 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 Route::get('/', function () {
 
     $files = File::files(resource_path("posts/"));
-    $documents = [];
+    $posts = [];
 
     foreach ($files as $file){
-        $documents[] = YamlFrontMatter::parseFile($file);
+        
+        // object
+        // на каждом цикле создаём объект Spatie\YamlFrontMatter\Document
+        $document = YamlFrontMatter::parseFile($file);
+
+        // var_dump($document);
+
+        // На каждом цикле в конструктор объекта Post
+        // помещаем аналогичные значения из объекта $document.
+        // В итоге получаем массив объектов Post.
+        $posts[] = new Post(
+            $document->title,
+            $document->excerpt,
+            $document->date,
+            $document->body()
+        );
+
     }
 
-    dd($documents);
+    ddd($posts);
+
+    
 
     /*
     // пример работы YamlFrontMatter   
